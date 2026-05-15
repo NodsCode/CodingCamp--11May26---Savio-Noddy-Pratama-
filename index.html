@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense & Budget Visualizer</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>Expense & Budget Visualizer</h1>
+      <button id="themeToggle" type="button" aria-label="Toggle dark mode">🌙 Dark Mode</button>
+    </header>
+
+    <section class="balance-card">
+      <h2>Total Balance</h2>
+      <p id="totalBalance">$0.00</p>
+    </section>
+
+    <section class="form-section">
+      <h2>Add Transaction</h2>
+      <form id="transactionForm">
+        <div class="form-row">
+          <label for="itemName">Item Name</label>
+          <input id="itemName" name="itemName" type="text" placeholder="Coffee" required />
+        </div>
+
+        <div class="form-row">
+          <label for="amount">Amount</label>
+          <input id="amount" name="amount" type="number" min="0.01" step="0.01" placeholder="4.50" required />
+        </div>
+
+        <div class="form-row">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+            <option value="" disabled selected>Select category</option>
+            <option value="Food">Food</option>
+            <option value="Transport">Transport</option>
+            <option value="Fun">Fun</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="customCategory">Custom Category (Optional)</label>
+          <input id="customCategory" name="customCategory" type="text" placeholder="e.g. Bills" />
+        </div>
+
+        <button type="submit">Add Transaction</button>
+        <p id="formError" class="error" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="controls">
+      <label for="sortBy">Sort by</label>
+      <select id="sortBy">
+        <option value="newest">Newest</option>
+        <option value="amountAsc">Amount (Low to High)</option>
+        <option value="amountDesc">Amount (High to Low)</option>
+        <option value="category">Category (A-Z)</option>
+      </select>
+    </section>
+
+    <section class="list-section">
+      <h2>Transactions</h2>
+      <ul id="transactionList"></ul>
+    </section>
+
+    <section class="chart-section">
+      <h2>Spending by Category</h2>
+      <canvas id="spendingChart" aria-label="Pie chart of spending by category"></canvas>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

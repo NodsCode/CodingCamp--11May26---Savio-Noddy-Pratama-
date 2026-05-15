@@ -1,0 +1,235 @@
+:root {
+  --bg: #f3f3f3;
+  --card: #ffffff;
+  --text: #333;
+  --muted: #777;
+  --accent: #3498db;
+  --danger: #e74c3c;
+  --border: #e5e5e5;
+}
+
+body.dark {
+  --bg: #111827;
+  --card: #1f2937;
+  --text: #f9fafb;
+  --muted: #cbd5e1;
+  --accent: #60a5fa;
+  --danger: #f87171;
+  --border: #374151;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  width: 95%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+/* TITLE */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+#themeToggle {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* CARD STYLE */
+.balance-card,
+.form-section,
+.list-section,
+.chart-section {
+  background: var(--card);
+  border-radius: 6px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+
+/* BALANCE */
+.balance-card {
+  text-align: center;
+}
+
+.balance-card h2 {
+  color: var(--muted);
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+#totalBalance {
+  font-size: 60px;
+  color: var(--accent);
+  margin: 0;
+  font-weight: bold;
+}
+
+/* FORM */
+.form-section h2 {
+  margin-top: 0;
+}
+
+.form-row {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dcdcdc;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+/* HIDE UNUSED CONTROLS */
+.controls,
+#customCategory,
+label[for="customCategory"] {
+  display: none;
+}
+
+/* BOTTOM GRID */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* TRANSACTION LIST */
+#transactionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.transaction-item strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.item-meta {
+  color: var(--accent);
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+.delete-btn {
+  background: var(--danger);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* CHART */
+.chart-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-section canvas {
+  max-width: 100%;
+  margin: auto;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #totalBalance {
+    font-size: 42px;
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+}
+.balance-card,
+.form-section,
+.list-section,
+.chart-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+
+  box-shadow:
+    0 2px 6px rgba(0,0,0,0.05),
+    0 8px 20px rgba(0,0,0,0.06);
+
+  transition: 0.2s ease;
+}
+
+.balance-card:hover,
+.form-section:hover,
+.list-section:hover,
+.chart-section:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 12px rgba(0,0,0,0.08),
+    0 12px 28px rgba(0,0,0,0.10);
+}
